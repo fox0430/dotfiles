@@ -1,0 +1,18 @@
+background no
+out_to_console yes
+out_to_x no
+update_interval 0.5
+total_run_times 0
+use_spacer none
+ 
+TEXT
+
+^fg(\#7d7d7d)^i(/home/fox/.xmonad/icons/cpu.xbm)^fg()   ${cpu cpu0}%   \
+^fg(\#7d7d7d)^i(/home/fox/.xmonad/icons/mem.xbm)^fg()   ${mem} / ${memmax}   \
+^fg(\#7d7d7d)^i(/home/fox/.xmonad/icons/output.xbm)^fg()	${diskio_read /dev/sda}/s   \
+^fg(\#7d7d7d)^i(/home/fox/.xmonad/icons/input.xbm)^fg()	${diskio_write /dev/sda}/s   \
+^fg(\#7d7d7d)^i(/home/fox/.xmonad/icons/battery.xbm)^fg()   ${battery BAT1} / ${battery BAT0}  \
+^fg(\#7d7d7d)^i(/home/fox/.xmonad/icons/signal.xbm)^fg()   ${wireless_link_qual wlp0s29u1u2}/%   \
+^fg(\#7d7d7d)^i(/home/fox/.xmonad/icons/parabola.xbm)^fg()   Palabora GNU/Linux-Libre x86_64   \
+^fg(\#7d7d7d)^i(/home/fox/.xmonad/icons/vol.xbm)^fg()   ${exec sh /home/fox/.xmonad/scripts/func_volume.sh}   \
+^bg(\#9932CC)    ^i(/home/fox/.xmonad/icons/clock.xbm)   ${time %a, %d %b %R %p}     \

@@ -1,0 +1,14 @@
+"xdotool mousedown 1"
+	m:0x0+c:102
+"xdotool mouseup 1"
+	release + m:0x0 + c:102
+
+"xdotool mousedown 2"
+	m:0x0 + c:100
+"xdotool mouseup 2"
+	release + m:0x0 + c:100
+
+"xdotool mousedown 3"
+	m:0x0 + c:101
+"xdotool mouseup 3"
+	release + m:0x0 + c:101

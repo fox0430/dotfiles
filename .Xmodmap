@@ -1,0 +1,6 @@
+keycode 102 = Mode_switch
+keycode 101 = Mode_switch
+keycode 100 = Mode_switch
+keycode 66 = Escape NoSymbol Escape
+keycode 97 = backslash backslash 
+remove Lock = Caps_Lock

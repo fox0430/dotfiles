@@ -1,0 +1,35 @@
+urxvt.geometry: 95x25
+urxvt.saveLines: 512
+urxvt.scrollBar: false
+urxvt.termName: rxvt
+
+URxvt*skipBuiltinGlyphs:    true
+URxvt.font :xft:Ubuntu Mono derivative Powerline:Bold:size=10.5:antialiase=true
+!URxvt.font :xft:Ricty:Bold:size=10:antialiase=true
+
+color
+URxvt*termName:  xterm-256color
+urxvt.depth: 32
+urxvt.foreground: rgba:ffff/ffff/ffff/ffff
+urxvt.background: rgba:0000/0000/0000/cccc
+
+! blue
+! from http://blog.asial.co.jp/262
+urxvt.color4: #5566ff
+urxvt.color12: #7799ff
+
+! fadeout urxvt if outfocus
+urxvt.fading: 30
+
+! input with IM at cursor position
+URxvt.perl-ext-common: ...,xim-onthespot,...
+URxvt.inputMethod: fcitx
+URxvt.preeditType: OnTheSpot
+
+! clipboard
+! $ urxvt --perl-lib $HOME/.urxvt/urxvt-perls
+urxvt.perl-lib: /home/sasaplus1/.urxvt/urxvt-perls
+urxvt.perl-ext-common: clipboard
+urxvt.keysym.M-c: perl:clipboard:copy
+urxvt.keysym.M-v: perl:clipboard:paste
+urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
