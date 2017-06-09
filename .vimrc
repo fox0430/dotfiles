@@ -54,6 +54,7 @@ endif
 " Plugin list
 call dein#add('Shougo/dein.vim')
 call dein#add('w0ng/vim-hybrid')
+call dein#add('w0ng/ale')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes') 
 call dein#add('thinca/vim-quickrun')
@@ -70,7 +71,6 @@ call dein#add('zah/nim.vim')
 "syntastic
 let g:syntastic_check_on_open=0
 let g:syntastic_check_on_wq=0
-let g:syntastic_python_checkers = ['flake8']
 
 "Airline
 set laststatus=2
