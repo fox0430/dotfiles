@@ -58,6 +58,7 @@ call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('davidhalter/jedi-vim')
 call dein#add('andviro/flake8-vim')
 call dein#add('hynek/vim-python-pep8-indent')
+call dein#add('vim-syntastic/syntastic')
 call dein#add('cohama/lexima.vim')
 call dein#add('justmao945/vim-clang')
 
@@ -74,9 +75,24 @@ colorscheme hybrid
 syntax on
 
 
+"syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'passive_filetypes': ['python'] }
+
+
 "jedi
 autocmd FileType python setlocal completeopt-=preview
 let g:jedi#rename_command = "<leader>R" 
+
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 
 " Plugin key-mappings.
