@@ -10,21 +10,12 @@ set noswapfile
 set number
 set autoindent
 set tabstop=4
+set expandtab
+set shiftwidth=4
 set incsearch
 set ignorecase
 set smartcase
-inoremap { {}<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap ( ()<ESC>i
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
-inoremap [ []<ESC>i
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap ' ''<ESC>i
-inoremap '<Enter> ''<Left><CR><ESC><S-o>
-inoremap " ""<ESC>i
-inoremap "<Enter> ""<Left><CR><ESC><S-o>
-inoremap < <><ESC>i
-inoremap <<Enter> <><Left><CR><ESC><S-o>
+set clipboard=unnamed
 
 
 "dein
@@ -53,24 +44,21 @@ endif
 
 " Plugin list
 call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/neocomplcache.vim')
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
 call dein#add('w0ng/vim-hybrid')
-call dein#add('w0ng/ale')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes') 
 call dein#add('thinca/vim-quickrun')
 call dein#add('Yggdroot/indentLine')
 call dein#add('zah/nim.vim')
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('scrooloose/syntastic')
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('justmao945/vim-clang')
-call dein#add('Shougo/neoinclude.vim')
-call dein#add('lervag/vimtex')
-call dein#add('zah/nim.vim')
+call dein#add('davidhalter/jedi-vim')
+call dein#add('andviro/flake8-vim')
+call dein#add('hynek/vim-python-pep8-indent')
+call dein#add('cohama/lexima.vim')
 
-"syntastic
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_wq=0
 
 "Airline
 set laststatus=2
@@ -82,46 +70,25 @@ let g:hybrid_custom_term_colors = 1
 colorscheme hybrid
 syntax on
 
+"jedi
+autocmd FileType python setlocal completeopt-=preview
+let g:jedi#rename_command = "<leader>R" 
 
-" 'Shougo/neocomplete.vim' {{{
-let g:neocomplete#enable_at_startup = 1
-if !exists('g:neocomplete#force_omni_input_patterns')
-	let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_overwrite_completefunc = 1
-let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"""}}}
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" disable auto completion for vim-clanG
-let g:clang_auto = 0
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_use_library = 1
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-" default 'longest' can not work with neocomplete
-let g:clang_c_completeopt   = 'menuone'
-let g:clang_cpp_completeopt = 'menuone'
-
-if executable('clang-3.6')
-	let g:clang_exec = 'clang-3.6'
-elseif executable('clang-3.5')
-	let g:clang_exec = 'clang-3.5'
-elseif executable('clang-3.4')
-	let g:clang_exec = 'clang-3.4'
-else
-	let g:clang_exec = 'clang'
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
 endif
 
-if executable('clang-format-3.6')
-	let g:clang_format_exec = 'clang-format-3.6'
-elseif executable('clang-format-3.5')
-	let g:clang_format_exec = 'clang-format-3.5'
-elseif executable('clang-format-3.4')
-	let g:clang_format_exec = 'clang-format-3.4'
-else
-	let g:clang_exec = 'clang-format'
-endif
-
-let g:clang_c_options = '-std=c11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
