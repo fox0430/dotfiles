@@ -1,35 +1,139 @@
-urxvt.geometry: 95x25
-urxvt.saveLines: 512
-urxvt.scrollBar: false
-urxvt.termName: rxvt
+vim: set ft=xdefaults:
+!------------------------------------------------------------------------------
+! Xft settings                                                              {{{
+!------------------------------------------------------------------------------
 
-URxvt*skipBuiltinGlyphs:    true
-URxvt*font: xft:Ricty:Bold:size=10:antialias=true
-!URxvt.letterSpace: -5
+Xft.dpi:       96
+Xft.antialias: false
+Xft.rgba:      rgb
+Xft.hinting:   true
+Xft.hintstyle: hintslight
 
-color
-URxvt*termName:  xterm-256color
-urxvt.depth: 32
-urxvt.foreground: rgba:ffff/ffff/ffff/ffff
-urxvt.background: rgba:0000/0000/0000/cccc
+!---------------------------------------------------------------------------}}}
+! URxvt settings                                                            {{{
+!------------------------------------------------------------------------------
+
+! For showing img in ranger with w3mimgdisplay, disable this
+! URxvt*.depth:          32
+URxvt.geometry:        90x35
+URxvt*.shading:        110
+URxvt*.transparent:    false
+! URxvt*.transparent:    true
+URxvt.tintColor:       #303030
+! URxvt*.shading:        110
+! URxvt.tintColor:       #303030
+URxvt*fading:          0
+! URxvt.urgentOnBell:    true
+URxvt*visualBell:      false
+URxvt*loginShell:      true
+URxvt.saveLines:       2000
+URxvt.internalBorder:  1
+!URxvt.borderColor:     #262626
+URxvt.lineSpace:       0
+URxvt.intensityStyles: true
+URxvt.perl-ext-common: default,selection
+URxvt.url-launcher:    /usr/bin/xdg-open
+URxvt.mathcer.button:  1
+
+! Fonts
+URxvt.allow_bold:      false
+URxvt*font:						 xft:Ricty:Bold:size=9:antialias=true
+! Fix font space
+URxvt*letterSpace:     0
+
+! Scrollbar
+URxvt.scrollBar:       false
+URxvt.scrollStyle:     rxvt
+URxvt.scrollBar_right: true
+
+! Cursor
+URxvt.cursorBlink:     true
+URxvt.cursorUnderline: false
+
+! Pointer
+URxvt.pointerBlank:    true
+
+! iso 14755 disable
+URxvt*iso14755:        false
+
+!---------------------------------------------------------------------------}}}
+! Color                                                                     {{{
+!------------------------------------------------------------------------------
+
+!! ver 1.0 {{{
+!*.foreground:  #c6c6c6
+!*.background:  #1c1c1c
+!*.cursorColor: #00d700
+!
+!! black
+!*.color0:      #353535
+!*.color8:      #404040
+!
+!! red
+!*.color1:      #ef9a9a
+!*.color9:      #f489ad
+!
+!! green
+!*.color2:      #a5d6a7
+!*.color10:     #b9e18b
+!
+!! yellow
+!*.color3:      #ece391
+!*.color11:     #e8cc76
+!
+!! blue
+!*.color4:      #9fc7e8
+!*.color12:     #81badc
+!
+!! magenta
+!*.color5:      #e0b1e8
+!*.color13:     #bb97db
+!
+!! cyan
+!*.color6:      #a2e2ea
+!*.color14:     #75d7cd
+!
+!! white
+!*.color7:      #90a2a0
+!*.color15:     #bdbdbd
+!}}}
+
+! ver 2.0 {{{
+*.foreground:  #A8B6B8
+*.background:  #1C1C1C
+*.cursorColor: #FF005F
+
+! black
+*.color0:      #353535
+*.color8:      #585858
+
+! red
+*.color1:      #EF9A9A
+*.color9:      #F489AD
+
+! green
+*.color2:      #A5D6A7
+*.color10:     #B9E18B
+
+! yellow
+*.color3:      #ECE391
+*.color11:     #E8CC76
 
 ! blue
-! from http://blog.asial.co.jp/262
-urxvt.color4: #5566ff
-urxvt.color12: #7799ff
+*.color4:      #9FC7E8
+*.color12:     #71BADC
 
-! fadeout urxvt if outfocus
-urxvt.fading: 30
+! magenta
+*.color5:      #E0B1E8
+*.color13:     #E59EF0
 
-! input with IM at cursor position
-URxvt.perl-ext-common: ...,xim-onthespot,...
-URxvt.inputMethod: fcitx
-URxvt.preeditType: OnTheSpot
+! cyan
+*.color6:      #A2E2EA
+*.color14:     #71D7CD
 
-! clipboard
-! $ urxvt --perl-lib $HOME/.urxvt/urxvt-perls
-urxvt.perl-lib: /home/sasaplus1/.urxvt/urxvt-perls
-urxvt.perl-ext-common: clipboard
-urxvt.keysym.M-c: perl:clipboard:copy
-urxvt.keysym.M-v: perl:clipboard:paste
-urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+! white
+*.color7:      #BDBDBD
+*.color15:     #AAAAAA
+!}}}
+
+!---------------------------------------------------------------------------}}}
