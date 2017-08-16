@@ -45,18 +45,18 @@ main = do
 toggleStrutsKey XConfig { XMonad.modMask = modMask } = ( modMask, xK_b )
 
 myConfig = ewmh defaultConfig
-    { terminal    		= myTerminal 
-    , modMask     		= mod4Mask
-    , borderWidth 		= myBorderWidth
-	, focusFollowsMouse	= True
-	, workspaces		= myWorkspaces
-	, startupHook		= setWMName "LG3D"
-	, manageHook 		= manageDocks <+> manageHook defaultConfig
-	, handleEventHook   = fullscreenEventHook
-	, logHook 			= dynamicLogWithPP $ xmobarPP
-    , layoutHook         = avoidStruts $ ( toggleLayouts (noBorders Full) $ myLayout)
-	, normalBorderColor  = "#333333"
-    , focusedBorderColor = "#cd8b00"
+    { terminal							= myTerminal 
+    , modMask								= mod4Mask
+    , borderWidth						= myBorderWidth
+		, focusFollowsMouse			= True
+		, workspaces						= myWorkspaces
+		, startupHook						= setWMName "LG3D"
+		, manageHook						= manageDocks <+> myManageHookFloat <+> manageHook defaultConfig
+		, handleEventHook				= fullscreenEventHook
+		, logHook 							= dynamicLogWithPP $ xmobarPP
+    , layoutHook						= avoidStruts $ ( toggleLayouts (noBorders Full) $ myLayout)
+		, normalBorderColor			= "#333333"
+    , focusedBorderColor		= "#cd8b00"
     } `additionalKeys` myKeys
 
 myTerminal  = "terminology"
@@ -88,11 +88,16 @@ myKeys			= [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
 
 					-- Toggle layout (Fullscreen mode)
 					, ((mod4Mask, xK_f)    , sendMessage ToggleLayout)
-                    -- Blightness contorl
-                    , ((0, blightUp), spawn "xbacklight -inc 5")
-                    , ((0, blightDown), spawn "xbacklight -dec 5")
-                    -- Volume contorl
-                    , ((0, volumeUp), spawn "amixer -M set Master 2%+")
-                    , ((0, volumeDown), spawn "amixer -M set Master 2%-")
-                    , ((0, volumeMute), spawn "amixer -D pulse set Master 1+ toggle")
+          -- Blightness contorl
+          , ((0, blightUp), spawn "xbacklight -inc 5")
+          , ((0, blightDown), spawn "xbacklight -dec 5")
+          -- Volume contorl
+          , ((0, volumeUp), spawn "amixer -M set Master 2%+")
+          , ((0, volumeDown), spawn "amixer -M set Master 2%-")
+          , ((0, volumeMute), spawn "amixer -D pulse set Master 1+ toggle")
 	]
+
+myManageHookFloat = composeAll
+    [ className =? "Gimp"			--> doFloat
+		, className =? "feh"			--> doFloat
+		]
