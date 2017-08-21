@@ -9,9 +9,9 @@ set cursorline
 set noswapfile
 set number
 set autoindent
-set tabstop=4
+set tabstop=2
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 set incsearch
 set ignorecase
 set smartcase
@@ -48,9 +48,11 @@ call dein#add('Shougo/neocomplcache.vim')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/neocomplete.vim')
-call dein#add('w0ng/vim-hybrid')
+"call dein#add('w0ng/vim-hybrid')
+call dein#add('jonathanfilip/vim-lucius')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes') 
+call dein#add('gorodinskiy/vim-coloresque') 
 call dein#add('thinca/vim-quickrun')
 call dein#add('Yggdroot/indentLine')
 call dein#add('zah/nim.vim')
@@ -69,11 +71,15 @@ set t_Co=256
 let g:airline_theme='papercolor'
 
 
-"hybrid
-let g:hybrid_custom_term_colors = 1
-colorscheme hybrid
+"color
 syntax on
+colorscheme lucius
 
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
+highlight Folded ctermbg=none
+highlight EndOfBuffer ctermbg=none
 
 "syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
