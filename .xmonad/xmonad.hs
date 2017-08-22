@@ -7,6 +7,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.ManageHelpers
 import XMonad.Actions.FloatKeys
 import XMonad.Layout
 import XMonad.Layout.DragPane
@@ -59,7 +60,7 @@ myConfig = ewmh defaultConfig
     , focusedBorderColor		= "#cd8b00"
     } `additionalKeys` myKeys
 
-myTerminal  = "terminology"
+myTerminal  = "urxvt"
 
 blightUp    = 0x1008ff02
 blightDown  = 0x1008ff03
@@ -85,6 +86,8 @@ myLayout        = spacing gapwidth $ gaps [(U, gwU),(D, gwD),(L, gwL),(R, gwR)]
                     ||| Simplest
 
 myKeys			= [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
+          , ((mod4Mask, xK_Return), spawn "urxvt")
+          , ((mod4Mask .|. shiftMask, xK_Return), spawn "/bin/bash ~/.xmonad/urxvt_float.sh &")
 
 					-- Toggle layout (Fullscreen mode)
 					, ((mod4Mask, xK_f)    , sendMessage ToggleLayout)
@@ -94,10 +97,11 @@ myKeys			= [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
           -- Volume contorl
           , ((0, volumeUp), spawn "amixer -M set Master 2%+")
           , ((0, volumeDown), spawn "amixer -M set Master 2%-")
-          , ((0, volumeMute), spawn "amixer -D pulse set Master 1+ toggle")
+          , ((0, volumeMute), spawn "amixer set Master toggle")
 	]
 
 myManageHookFloat = composeAll
     [ className =? "Gimp"			--> doFloat
 		, className =? "feh"			--> doFloat
+    , title     =? "urxvt_float"      --> doSideFloat SC
 		]
