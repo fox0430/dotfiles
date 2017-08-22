@@ -1,3 +1,5 @@
+-- Optimazied for full HD display
+
 import XMonad
 import XMonad.ManageHook
 import Control.Monad (liftM2)
@@ -99,6 +101,9 @@ myKeys			= [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
           , ((0, volumeUp), spawn "amixer -M set Master 2%+")
           , ((0, volumeDown), spawn "amixer -M set Master 2%-")
           , ((0, volumeMute), spawn "amixer set Master toggle")
+          -- Swap window
+          , ((mod4Mask .|. shiftMask, xK_period), windows W.swapDown)
+          , ((mod4Mask .|. shiftMask, xK_comma), windows W.swapUp)
 	]
 
 myManageHookFloat = composeAll
@@ -106,5 +111,6 @@ myManageHookFloat = composeAll
 		, className =? "feh"			--> doFloat
     , title     =? "urxvt_float"      --> doLeftFloat
     ]
+
     where
       doLeftFloat = customFloating $ W.RationalRect (0/6) (3.6/6) (1.7/4) (2.5/5)   --x, y, width, hight
