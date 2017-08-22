@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.ManageHook
 import Control.Monad (liftM2)
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
@@ -7,7 +8,6 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
-import XMonad.Hooks.ManageHelpers
 import XMonad.Actions.FloatKeys
 import XMonad.Layout
 import XMonad.Layout.DragPane
@@ -25,6 +25,7 @@ import XMonad.Util.Run
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig (additionalKeys)
 import XMonad.Util.EZConfig
+import XMonad.Util.NamedScratchpad
 import Graphics.X11.ExtraTypes.XF86
 import System.IO
 
@@ -103,5 +104,7 @@ myKeys			= [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
 myManageHookFloat = composeAll
     [ className =? "Gimp"			--> doFloat
 		, className =? "feh"			--> doFloat
-    , title     =? "urxvt_float"      --> doSideFloat SC
-		]
+    , title     =? "urxvt_float"      --> doLeftFloat
+    ]
+    where
+      doLeftFloat = customFloating $ W.RationalRect (0/6) (3.6/6) (1.7/4) (2.5/5)   --x, y, width, hight
