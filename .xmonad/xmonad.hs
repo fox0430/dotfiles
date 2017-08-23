@@ -63,54 +63,55 @@ myConfig = ewmh defaultConfig
     , focusedBorderColor		= "#cd8b00"
     } `additionalKeys` myKeys
 
-myTerminal  = "urxvt"
+myTerminal    = "urxvt"
 
-blightUp    = 0x1008ff02
-blightDown  = 0x1008ff03
-volumeUp    = 0x1008ff13
-volumeDown  = 0x1008ff11
-volumeMute  = 0x1008ff12
+-- key code
+blightUp      = 0x1008ff02
+blightDown    = 0x1008ff03
+volumeUp      = 0x1008ff13
+volumeDown    = 0x1008ff11
+volumeMute    = 0x1008ff12
 
 
-myColor = xmobarColor "green" "" . wrap "<" ">"
-myWorkspaces	= ["Term","Brows","1","2","3","4","5"]
+myColor       = xmobarColor "green" "" . wrap "<" ">"
+myWorkspaces  = ["Term","Brows","1","2","3","4","5"]
 
-moveWD			= myBorderWidth
-resizeWD 		= 2*myBorderWidth
+moveWD        = myBorderWidth
+resizeWD      = 2*myBorderWidth
 myBorderWidth	= 2
 gapwidth  		= 4
-gwU 			= 2
-gwD 			= 1
-gwL 			= 38
-gwR 			= 37
-myLayout        = spacing gapwidth $ gaps [(U, gwU),(D, gwD),(L, gwL),(R, gwR)]
-                    $ (ResizableTall 1 (1/201) (116/201) [])
-                    ||| (TwoPane (1/201) (116/201))
-                    ||| Simplest
+gwU           = 2
+gwD           = 1
+gwL           = 38
+gwR           = 37
+myLayout      = spacing gapwidth $ gaps [(U, gwU),(D, gwD),(L, gwL),(R, gwR)]
+                  $ (ResizableTall 1 (1/201) (116/201) [])
+                  ||| (TwoPane (1/201) (116/201))
+                  ||| Simplest
 
-myKeys			= [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
-          , ((mod4Mask, xK_Return), spawn "urxvt")
-          , ((mod4Mask .|. shiftMask, xK_Return), spawn "/bin/bash ~/.xmonad/urxvt_float.sh &")
+myKeys			  = [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
+                , ((mod4Mask, xK_Return), spawn "urxvt")
+                , ((mod4Mask .|. shiftMask, xK_Return), spawn "/bin/bash ~/.xmonad/urxvt_float.sh &")
 
-					-- Toggle layout (Fullscreen mode)
-					, ((mod4Mask, xK_f)    , sendMessage ToggleLayout)
-          -- Blightness contorl
-          , ((0, blightUp), spawn "xbacklight -inc 5")
-          , ((0, blightDown), spawn "xbacklight -dec 5")
-          -- Volume contorl
-          , ((0, volumeUp), spawn "amixer -M set Master 2%+")
-          , ((0, volumeDown), spawn "amixer -M set Master 2%-")
-          , ((0, volumeMute), spawn "amixer set Master toggle")
-          -- Swap window
-          , ((mod4Mask .|. shiftMask, xK_period), windows W.swapDown)
-          , ((mod4Mask .|. shiftMask, xK_comma), windows W.swapUp)
-	]
+					      -- Toggle layout (Fullscreen mode)
+					      , ((mod4Mask, xK_f)    , sendMessage ToggleLayout)
+                -- Blightness contorl
+                , ((0, blightUp), spawn "xbacklight -inc 5")
+                , ((0, blightDown), spawn "xbacklight -dec 5")
+                -- Volume contorl
+                , ((0, volumeUp), spawn "amixer -M set Master 2%+")
+                , ((0, volumeDown), spawn "amixer -M set Master 2%-")
+                , ((0, volumeMute), spawn "amixer set Master toggle")
+                -- Swap window
+                , ((mod4Mask .|. shiftMask, xK_period), windows W.swapDown)
+                , ((mod4Mask .|. shiftMask, xK_comma), windows W.swapUp)
+  ]
 
-myManageHookFloat = composeAll
-    [ className =? "Gimp"			--> doFloat
-		, className =? "feh"			--> doFloat
-    , title     =? "urxvt_float"      --> doLeftFloat
+myManageHookFloat   =   composeAll
+    [ className     =?  "Gimp"			   --> doFloat
+		, className     =?  "feh"          --> doFloat
+    , title         =?  "urxvt_float"  --> doLeftFloat
     ]
 
     where
-      doLeftFloat = customFloating $ W.RationalRect (0/6) (3.6/6) (1.7/4) (2.5/5)   --x, y, width, hight
+      doLeftFloat = customFloating $ W.RationalRect (0/6) (3.3/6) (1.7/4) (2.7/6)   --x, y, width, hight
