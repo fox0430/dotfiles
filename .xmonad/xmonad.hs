@@ -101,7 +101,7 @@ myKeys			  = [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
                 -- Volume contorl
                 , ((0, volumeUp), spawn "amixer -M set Master 2%+")
                 , ((0, volumeDown), spawn "amixer -M set Master 2%-")
-                , ((0, volumeMute), spawn "amixer set Master toggle")
+                , ((0, volumeMute), spawn "amixer -q -D pulse sset Master toggle")
                 -- Swap window
                 , ((mod4Mask .|. shiftMask, xK_period), windows W.swapDown)
                 , ((mod4Mask .|. shiftMask, xK_comma), windows W.swapUp)
