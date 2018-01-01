@@ -1,3 +1,5 @@
+export TERM=rxvt-unicode-256color
+
 screenfetch
 
 fish_vi_key_bindings
@@ -7,6 +9,7 @@ alias DL "cd & cd ~/Downloads"
 alias x "startx"
 alias py "python"
 alias rm "rm -i"
+alias DC "/bin/bash ~/.config/fish/dysplayChange.sh"
 
 function cd
     # Avoid set completions.
