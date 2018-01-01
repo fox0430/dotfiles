@@ -8,8 +8,9 @@ alias vi "vim"
 alias DL "cd & cd ~/Downloads"
 alias x "startx"
 alias py "python"
-alias rm "rm -i"
+alias rm "rm -v -i"
 alias DC "/bin/bash ~/.config/fish/dysplayChange.sh"
+alias cp "cp -v -i"
 
 function cd
     # Avoid set completions.
