@@ -17,10 +17,7 @@ Xft.hintstyle: hintslight
 ! URxvt*.depth:          32
 URxvt.geometry:        90x35
 URxvt*.shading:        110
-URxvt*.transparent:    true
 URxvt.tintColor:       #303030
-! URxvt*.shading:        110
-! URxvt.tintColor:       #303030
 URxvt*fading:          0
 ! URxvt.urgentOnBell:    true
 URxvt*visualBell:      false
@@ -67,8 +64,15 @@ URxvt.preeditType: OverTheSpot
 !---------------------------------------------------------------------------}}}
 ! Color                                                                     {{{
 !------------------------------------------------------------------------------
+! --- fake transparency ---
+!URxvt*.transparent:    true
+! URxvt*.shading:        110
 
-Rxvt*background: #101010
+! --- real transparency ---
+URxvt.depth: 32 
+! [transparent level] Color
+URxvt.background: [65]#000000
+
 *foreground: #CCCCCC
 URxvt*color0: #101010
 URxvt*color1: #960050
