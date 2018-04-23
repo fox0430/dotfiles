@@ -11,6 +11,7 @@ alias py "python"
 alias rm "rm -v -i"
 alias DC "/bin/bash ~/.config/fish/dysplayChange.sh"
 alias cp "cp -v -i"
+alias nmgui "/bin/bash ~/.config/fish/nmgui.sh"
 
 function cd
     # Avoid set completions.
