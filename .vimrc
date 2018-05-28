@@ -16,6 +16,7 @@ set incsearch
 set ignorecase
 set smartcase
 set clipboard=unnamed
+set belloff=all "Beep off
 
 
 "dein
