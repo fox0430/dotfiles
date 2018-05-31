@@ -1,4 +1,4 @@
--- Optimazied for full HD display
+-- Optimazied for 16:9 display
 
 import XMonad
 import XMonad.ManageHook
@@ -71,6 +71,7 @@ blightDown    = 0x1008ff03
 volumeUp      = 0x1008ff13
 volumeDown    = 0x1008ff11
 volumeMute    = 0x1008ff12
+printScreen   = 0xff61
 
 
 myColor       = xmobarColor "green" "" . wrap "<" ">"
@@ -101,10 +102,13 @@ myKeys			  = [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
                 -- Volume contorl
                 , ((0, volumeUp), spawn "amixer -M set Master 2%+")
                 , ((0, volumeDown), spawn "amixer -M set Master 2%-")
-                , ((0, volumeMute), spawn "amixer -q -D pulse sset Master toggle")
+                , ((0, volumeMute), spawn "amixer set Master toggle")
                 -- Swap window
                 , ((mod4Mask .|. shiftMask, xK_period), windows W.swapDown)
                 , ((mod4Mask .|. shiftMask, xK_comma), windows W.swapUp)
+                -- Screen shot
+                , ((0, printScreen), spawn "/bin/bash ~/.xmonad/ss.sh &")
+
   ]
 
 myManageHookFloat   =   composeAll
