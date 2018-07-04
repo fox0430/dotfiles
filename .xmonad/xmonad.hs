@@ -58,7 +58,7 @@ myConfig = ewmh defaultConfig
 		, manageHook						= manageDocks <+> myManageHookFloat <+> manageHook defaultConfig
 		, handleEventHook				= fullscreenEventHook
 		, logHook 							= dynamicLogWithPP $ xmobarPP
-    , layoutHook						= avoidStruts $ ( toggleLayouts (noBorders Full) $ myLayout)
+    , layoutHook						= avoidStruts $ ( toggleLayouts (noBorders Full) $ onWorkspace "Brows" (noBorders Full) $ myLayout)
 		, normalBorderColor			= "#333333"
     , focusedBorderColor		= "#cd8b00"
     } `additionalKeys` myKeys
