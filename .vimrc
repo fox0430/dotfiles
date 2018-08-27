@@ -58,12 +58,14 @@ call dein#add('thinca/vim-quickrun')
 call dein#add('Yggdroot/indentLine')
 call dein#add('zah/nim.vim')
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('davidhalter/jedi-vim')
-call dein#add('andviro/flake8-vim')
-call dein#add('hynek/vim-python-pep8-indent')
-call dein#add('vim-syntastic/syntastic')
+"call dein#add('davidhalter/jedi-vim')
+"call dein#add('andviro/flake8-vim')
+"call dein#add('hynek/vim-python-pep8-indent')
+"call dein#add('vim-syntastic/syntastic')
 call dein#add('cohama/lexima.vim')
-call dein#add('justmao945/vim-clang')
+"call dein#add('justmao945/vim-clang')
+call dein#add('pangloss/vim-javascript')
+call dein#add('w0rp/ale')
 
 
 "Airline
@@ -83,23 +85,23 @@ highlight Folded ctermbg=none
 highlight EndOfBuffer ctermbg=none
 
 "syntastic
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'passive_filetypes': ['python'] }
+"let g:syntastic_mode_map = { 'mode': 'active',
+"  \ 'passive_filetypes': ['python'] }
 
 
 "jedi
-autocmd FileType python setlocal completeopt-=preview
-let g:jedi#rename_command = "<leader>R" 
-
-autocmd FileType python setlocal omnifunc=jedi#completions
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+" autocmd FileType python setlocal completeopt-=preview
+" let g:jedi#rename_command = "<leader>R" 
+" 
+" autocmd FileType python setlocal omnifunc=jedi#completions
+" let g:jedi#completions_enabled = 0
+" let g:jedi#auto_vim_configuration = 0
+" 
+" if !exists('g:neocomplete#force_omni_input_patterns')
+"         let g:neocomplete#force_omni_input_patterns = {}
+" endif
+" 
+" let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 
 " Plugin key-mappings.
@@ -135,38 +137,38 @@ let g:neocomplete#force_omni_input_patterns.cpp =
 
 
 "vim-clang config
-function! s:get_latest_clang(search_path)
-    let l:filelist = split(globpath(a:search_path, 'clang-*'), '\n')
-    let l:clang_exec_list = []
-    for l:file in l:filelist
-        if l:file =~ '^.*clang-\d\.\d$'
-            call add(l:clang_exec_list, l:file)
-        endif
-    endfor
-    if len(l:clang_exec_list)
-        return reverse(l:clang_exec_list)[0]
-    else
-        return 'clang'
-    endif
-endfunction
-
-function! s:get_latest_clang_format(search_path)
-    let l:filelist = split(globpath(a:search_path, 'clang-format-*'), '\n')
-    let l:clang_exec_list = []
-    for l:file in l:filelist
-        if l:file =~ '^.*clang-format-\d\.\d$'
-            call add(l:clang_exec_list, l:file)
-        endif
-    endfor
-    if len(l:clang_exec_list)
-        return reverse(l:clang_exec_list)[0]
-    else
-        return 'clang-format'
-    endif
-endfunction
-
-let g:clang_exec = s:get_latest_clang('/usr/bin')
-let g:clang_format_exec = s:get_latest_clang_format('/usr/bin')
-
-let g:clang_c_options = '-std=c11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+"function! s:get_latest_clang(search_path)
+"    let l:filelist = split(globpath(a:search_path, 'clang-*'), '\n')
+"    let l:clang_exec_list = []
+"    for l:file in l:filelist
+"        if l:file =~ '^.*clang-\d\.\d$'
+"            call add(l:clang_exec_list, l:file)
+"        endif
+"    endfor
+"    if len(l:clang_exec_list)
+"        return reverse(l:clang_exec_list)[0]
+"    else
+"        return 'clang'
+"    endif
+"endfunction
+"
+"function! s:get_latest_clang_format(search_path)
+"    let l:filelist = split(globpath(a:search_path, 'clang-format-*'), '\n')
+"    let l:clang_exec_list = []
+"    for l:file in l:filelist
+"        if l:file =~ '^.*clang-format-\d\.\d$'
+"            call add(l:clang_exec_list, l:file)
+"        endif
+"    endfor
+"    if len(l:clang_exec_list)
+"        return reverse(l:clang_exec_list)[0]
+"    else
+"        return 'clang-format'
+"    endif
+"endfunction
+"
+"let g:clang_exec = s:get_latest_clang('/usr/bin')
+"let g:clang_format_exec = s:get_latest_clang_format('/usr/bin')
+"
+"let g:clang_c_options = '-std=c11'
+"let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
