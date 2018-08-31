@@ -18,6 +18,9 @@ set smartcase
 set clipboard=unnamed
 set belloff=all
 
+"Search highlight
+:set hlsearch
+nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
 "dein
 augroup PluginInstall
@@ -64,7 +67,7 @@ call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 "call dein#add('vim-syntastic/syntastic')
 call dein#add('cohama/lexima.vim')
 "call dein#add('justmao945/vim-clang')
-call dein#add('pangloss/vim-javascript')
+call dein#add('jelera/vim-javascript-syntax')
 call dein#add('w0rp/ale')
 
 
