@@ -15,8 +15,14 @@ set shiftwidth=2
 set incsearch
 set ignorecase
 set smartcase
-set clipboard=unnamed
+set clipboard& clipboard^=unnamedplus
 set belloff=all
+set spelllang=en,cjk
+
+"Window keybind
+
+nnoremap <C-k> <C-w>l
+nnoremap <C-j> <C-w>h
 
 "Search highlight
 :set hlsearch
@@ -48,10 +54,17 @@ endif
 
 " Plugin list
 call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/neocomplcache.vim')
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('Shougo/neocomplete.vim')
+"call dein#add('Shougo/neocomplcache.vim')
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+
+"call dein#add('Shougo/deoplete.nvim')
+"if !has('nvim')
+"  call dein#add('roxma/nvim-yarp')
+"  call dein#add('roxma/vim-hug-neovim-rpc')
+"endif
+"let g:deoplete#enable_at_startup = 1
+
 "call dein#add('w0ng/vim-hybrid')
 call dein#add('jonathanfilip/vim-lucius')
 call dein#add('vim-airline/vim-airline')
@@ -60,22 +73,22 @@ call dein#add('gorodinskiy/vim-coloresque')
 call dein#add('thinca/vim-quickrun')
 call dein#add('Yggdroot/indentLine')
 call dein#add('zah/nim.vim')
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 "call dein#add('davidhalter/jedi-vim')
 "call dein#add('andviro/flake8-vim')
 "call dein#add('hynek/vim-python-pep8-indent')
 "call dein#add('vim-syntastic/syntastic')
 call dein#add('cohama/lexima.vim')
 "call dein#add('justmao945/vim-clang')
-call dein#add('jelera/vim-javascript-syntax')
+call dein#add('othree/yajs.vim')
 call dein#add('w0rp/ale')
+call dein#add('luochen1990/rainbow')
+call dein#add('yuttie/comfortable-motion.vim')
 
 
 "Airline
 set laststatus=2
 set t_Co=256 
 let g:airline_theme='papercolor'
-
 
 "color
 syntax on
@@ -86,11 +99,6 @@ highlight NonText ctermbg=none
 highlight LineNr ctermbg=none
 highlight Folded ctermbg=none
 highlight EndOfBuffer ctermbg=none
-
-"syntastic
-"let g:syntastic_mode_map = { 'mode': 'active',
-"  \ 'passive_filetypes': ['python'] }
-
 
 "jedi
 " autocmd FileType python setlocal completeopt-=preview
@@ -124,20 +132,28 @@ smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : 
 "if has('conceal') set conceallevel=2 concealcursor=i
 
 " 'Shougo/neocomplete.vim' {{{
-let g:neocomplete#enable_at_startup = 1
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_overwrite_completefunc = 1
-let g:neocomplete#force_omni_input_patterns.c =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-let g:neocomplete#force_omni_input_patterns.cpp =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
-" }}}
+"let g:neocomplete#enable_at_startup = 1
 "
+"if !exists('g:neocomplete#force_omni_input_patterns')
+"  let g:neocomplete#force_omni_input_patterns = {}
+"endif
+"let g:neocomplete#force_overwrite_completefunc = 1
+"let g:neocomplete#force_omni_input_patterns.c =
+"      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+"let g:neocomplete#force_omni_input_patterns.cpp =
+"      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+"" }}}
+"
+"" neosnippet
+"let g:neosnippet#enable_completed_snippet = 1
 
+"YCM
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
+
+
+"comfortable-motion.vim
+let g:comfortable_motion_scroll_down_key = "j"
+let g:comfortable_motion_scroll_up_key = "k"
 
 "vim-clang config
 "function! s:get_latest_clang(search_path)
