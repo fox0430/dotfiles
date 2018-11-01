@@ -65,8 +65,13 @@ call dein#add('Shougo/dein.vim')
 "endif
 "let g:deoplete#enable_at_startup = 1
 
-"call dein#add('w0ng/vim-hybrid')
+" Color scheme
+call dein#add('w0ng/vim-hybrid')
 call dein#add('jonathanfilip/vim-lucius')
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('crater2150/vim-theme-chroma')
+call dein#add('raphamorim/lucario')
+
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes') 
 call dein#add('gorodinskiy/vim-coloresque') 
@@ -76,13 +81,14 @@ call dein#add('zah/nim.vim')
 "call dein#add('davidhalter/jedi-vim')
 "call dein#add('andviro/flake8-vim')
 "call dein#add('hynek/vim-python-pep8-indent')
-"call dein#add('vim-syntastic/syntastic')
 call dein#add('cohama/lexima.vim')
 "call dein#add('justmao945/vim-clang')
 call dein#add('othree/yajs.vim')
 call dein#add('w0rp/ale')
 call dein#add('luochen1990/rainbow')
 call dein#add('yuttie/comfortable-motion.vim')
+call dein#add('chrisbra/csv.vim')
+call dein#add('tpope/vim-fugitive')
 
 
 "Airline
@@ -92,6 +98,8 @@ let g:airline_theme='papercolor'
 
 "color
 syntax on
+let g:solarized_contrast="high"
+let g:solarized_termcolors=256
 colorscheme lucius
 
 highlight Normal ctermbg=none
@@ -148,46 +156,9 @@ smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : 
 "let g:neosnippet#enable_completed_snippet = 1
 
 "YCM
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_server_python_interpreter = '/usr/bin/python'
 
 
 "comfortable-motion.vim
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
-
-"vim-clang config
-"function! s:get_latest_clang(search_path)
-"    let l:filelist = split(globpath(a:search_path, 'clang-*'), '\n')
-"    let l:clang_exec_list = []
-"    for l:file in l:filelist
-"        if l:file =~ '^.*clang-\d\.\d$'
-"            call add(l:clang_exec_list, l:file)
-"        endif
-"    endfor
-"    if len(l:clang_exec_list)
-"        return reverse(l:clang_exec_list)[0]
-"    else
-"        return 'clang'
-"    endif
-"endfunction
-"
-"function! s:get_latest_clang_format(search_path)
-"    let l:filelist = split(globpath(a:search_path, 'clang-format-*'), '\n')
-"    let l:clang_exec_list = []
-"    for l:file in l:filelist
-"        if l:file =~ '^.*clang-format-\d\.\d$'
-"            call add(l:clang_exec_list, l:file)
-"        endif
-"    endfor
-"    if len(l:clang_exec_list)
-"        return reverse(l:clang_exec_list)[0]
-"    else
-"        return 'clang-format'
-"    endif
-"endfunction
-"
-"let g:clang_exec = s:get_latest_clang('/usr/bin')
-"let g:clang_format_exec = s:get_latest_clang_format('/usr/bin')
-"
-"let g:clang_c_options = '-std=c11'
-"let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'

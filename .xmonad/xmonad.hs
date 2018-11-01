@@ -15,13 +15,12 @@ import XMonad.Layout
 import XMonad.Layout.DragPane
 import XMonad.Layout.Gaps
 import XMonad.Layout.ResizableTile
-import XMonad.Layout.Simplest
 import XMonad.Layout.SimplestFloat
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.PerWorkspace
-import XMonad.Layout.TwoPane
 import XMonad.Layout.Spacing
+import XMonad.Layout.ThreeColumns
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
 import XMonad.Util.Run(spawnPipe)
@@ -58,12 +57,12 @@ myConfig = ewmh defaultConfig
 		, manageHook						= manageDocks <+> myManageHookFloat <+> manageHook defaultConfig
 		, handleEventHook				= fullscreenEventHook
 		, logHook 							= dynamicLogWithPP $ xmobarPP
-    , layoutHook						= avoidStruts $ ( toggleLayouts (noBorders Full) $ onWorkspace "Brows" (noBorders Full) $ myLayout)
+    , layoutHook						= avoidStruts $ ( toggleLayouts (noBorders Full) $ myLayout)
 		, normalBorderColor			= "#333333"
     , focusedBorderColor		= "#cd8b00"
     } `additionalKeys` myKeys
 
-myTerminal    = "urxvt"
+myTerminal    = "alacritty"
 
 -- key code
 blightUp      = 0x1008ff02
@@ -87,12 +86,12 @@ gwL           = 38
 gwR           = 37
 myLayout      = spacing gapwidth $ gaps [(U, gwU),(D, gwD),(L, gwL),(R, gwR)]
                   $ (ResizableTall 1 (1/201) (116/201) [])
-                  ||| (TwoPane (1/201) (116/201))
-                  ||| Simplest
+                  ||| Mirror (Tall 1 (3/100) (3/5))
+                  ||| ThreeCol 1 (3/100) (1/2)
 
 myKeys			  = [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
-                , ((mod4Mask, xK_Return), spawn "urxvt")
-                , ((mod4Mask .|. shiftMask, xK_Return), spawn "/bin/bash ~/.xmonad/urxvt_float.sh &")
+                , ((mod4Mask, xK_Return), spawn "alacritty")
+                , ((mod4Mask .|. shiftMask, xK_Return), spawn "sh ~/.xmonad/urxvt_float.sh &")
 
 					      -- Toggle layout (Fullscreen mode)
 					      , ((mod4Mask, xK_f)    , sendMessage ToggleLayout)
