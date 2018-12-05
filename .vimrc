@@ -76,9 +76,9 @@ call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes') 
 call dein#add('gorodinskiy/vim-coloresque') 
 call dein#add('thinca/vim-quickrun')
-call dein#add('Yggdroot/indentLine')
+"call dein#add('Yggdroot/indentLine')
 call dein#add('zah/nim.vim')
-"call dein#add('davidhalter/jedi-vim')
+call dein#add('davidhalter/jedi-vim')
 "call dein#add('andviro/flake8-vim')
 "call dein#add('hynek/vim-python-pep8-indent')
 call dein#add('cohama/lexima.vim')
@@ -89,7 +89,11 @@ call dein#add('luochen1990/rainbow')
 call dein#add('yuttie/comfortable-motion.vim')
 call dein#add('chrisbra/csv.vim')
 call dein#add('tpope/vim-fugitive')
+call dein#add('airblade/vim-gitgutter')
 
+
+"vim-gitgutter
+set updatetime=250
 
 "Airline
 set laststatus=2
