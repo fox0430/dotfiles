@@ -90,6 +90,7 @@ call dein#add('yuttie/comfortable-motion.vim')
 call dein#add('chrisbra/csv.vim')
 call dein#add('tpope/vim-fugitive')
 call dein#add('airblade/vim-gitgutter')
+call dein#add('lervag/vimtex')
 
 
 "vim-gitgutter
