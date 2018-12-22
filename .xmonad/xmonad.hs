@@ -62,7 +62,7 @@ myConfig = ewmh defaultConfig
     , focusedBorderColor		= "#cd8b00"
     } `additionalKeys` myKeys
 
-myTerminal    = "alacritty"
+myTerminal    = "urxvt"
 
 -- key code
 blightUp      = 0x1008ff02
@@ -90,7 +90,7 @@ myLayout      = spacing gapwidth $ gaps [(U, gwU),(D, gwD),(L, gwL),(R, gwR)]
                   ||| ThreeCol 1 (3/100) (1/2)
 
 myKeys			  = [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
-                , ((mod4Mask, xK_Return), spawn "alacritty")
+                , ((mod4Mask, xK_Return), spawn "urxvt")
                 , ((mod4Mask .|. shiftMask, xK_Return), spawn "sh ~/.xmonad/urxvt_float.sh &")
 
 					      -- Toggle layout (Fullscreen mode)

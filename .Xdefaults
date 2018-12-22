@@ -27,13 +27,12 @@ URxvt.internalBorder:  1
 !URxvt.borderColor:     #262626
 URxvt.lineSpace:       0
 URxvt.intensityStyles: true
-!URxvt.perl-ext-common: default,selection
 URxvt.url-launcher:    /usr/bin/xdg-open
 URxvt.mathcer.button:  1
 
 ! Fonts
 URxvt.allow_bold:      false
-URxvt*font:						 xft:Ricty:Bold:size=10
+URxvt*font:						 xft:Ricty:Bold:size=9
 ! Fix font space
 URxvt*letterSpace:     -1 
 
@@ -53,11 +52,15 @@ URxvt.pointerBlank:    true
 URxvt*iso14755:        false
 
 URxvt*skipBuiltinGlyphs:    true
+
+! KeyBind
+URxvt.keysym.C-Down:    resize-font:smaller
+URxvt.keysym.C-Up:    resize-font:bigger
 !---------------------------------------------------------------------------}}}
 ! Input Method                                                              {{{
 !------------------------------------------------------------------------------
 
-URxvt.perl-ext-common:default,matcher,xim-onthespot,tabbed.
+URxvt.perl-ext-common:default,resize-font,matcher,xim-onthespot,tabbed.
 URxvt.inputMethod: fcitx
 URxvt.preeditType: OverTheSpot
 
@@ -71,7 +74,8 @@ URxvt.preeditType: OverTheSpot
 ! --- real transparency ---
 URxvt.depth: 32 
 ! [transparent level] Color
-URxvt.background: [65]#000000
+ URxvt.background: [80]#000000
+! URxvt.background: [80]#ffffff
 
 *foreground: #CCCCCC
 URxvt*color0: #101010
