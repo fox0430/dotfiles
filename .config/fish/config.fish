@@ -1,3 +1,4 @@
+set PATH /home/fox/.nimble/bin $PATH
 export TERM=rxvt-unicode-256color
 
 screenfetch

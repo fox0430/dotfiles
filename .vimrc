@@ -91,6 +91,7 @@ call dein#add('chrisbra/csv.vim')
 call dein#add('tpope/vim-fugitive')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('lervag/vimtex')
+call dein#add('RRethy/vim-illuminate')
 
 
 "vim-gitgutter
