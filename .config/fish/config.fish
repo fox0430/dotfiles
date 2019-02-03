@@ -1,5 +1,8 @@
 set PATH /home/fox/.nimble/bin $PATH
 export TERM=rxvt-unicode-256color
+set PATH /home/fox/Fablic/fabric-samples/bin $PATH
+
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Djxbrowser.ipc.external=true'
 
 screenfetch
 
@@ -13,6 +16,7 @@ alias rm "rm -v -i"
 alias DC "/bin/bash ~/.config/fish/dysplayChange.sh"
 alias cp "cp -v -i"
 alias nmgui "/bin/bash ~/.config/fish/nmgui.sh"
+alias stopdocker "/bin/bash ~/.config/fish/allStopDocker.sh"
 
 function cd
     # Avoid set completions.
