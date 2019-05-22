@@ -9,7 +9,6 @@ xset b off
 
 #X1 Carbon 2018 6th trackpoint speed
 xinput set-prop 12 152 1 0 0 0 1 0 0 0 0.2
-xinput set-prop 12 329 1.0
 
 #evel $(/usr/bin/gome-keyring-daemon --components=pskcs11,secrets,ssh)
 #export SSH_AUTH_SOCK
@@ -17,7 +16,7 @@ xinput set-prop 12 329 1.0
 nm-applet &
 nitrogen --restore &
 compton --xrender-sync --xrender-sync-fence &
-urxvt &
+alacritty &
 fcitx-autostart &
 
 #exec awesome
