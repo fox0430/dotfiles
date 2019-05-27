@@ -11,6 +11,6 @@ Config { font = "xft:Ricty-10:bold"
 				, Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
 				, Run Com "bash" ["/home/fox/.xmonad/get-volume.sh"] "myvolume" 10
 				, Run StdinReader
-	]
-	, template = "%cpu% | %memory% | %wlp3s0% | %myvolume% | %battery%} %StdinReader% { %RJTT% | <fc=#ee9a00>%date%</fc>"
+	 ]
+	, template = "%cpu% | %memory% | %wlp3s0% | %myvolume% | %battery%} %StdinReader% { <fc=#ee9a00>%date%</fc>"
 }
