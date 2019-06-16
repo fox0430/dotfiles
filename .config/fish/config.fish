@@ -17,6 +17,7 @@ alias DC "/bin/bash ~/.config/fish/dysplayChange.sh"
 alias cp "cp -v -i"
 alias nmgui "/bin/bash ~/.config/fish/nmgui.sh"
 alias stopdocker "/bin/bash ~/.config/fish/allStopDocker.sh"
+alias k "kubectl"
 
 function cd
     # Avoid set completions.
