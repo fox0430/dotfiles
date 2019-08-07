@@ -2,7 +2,7 @@ set PATH /home/fox/.nimble/bin $PATH
 export TERM=rxvt-unicode-256color
 set PATH /home/fox/Fablic/fabric-samples/bin $PATH
 
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Djxbrowser.ipc.external=true'
+#export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Djxbrowser.ipc.external=true'
 
 screenfetch
 
@@ -18,6 +18,9 @@ alias cp "cp -v -i"
 alias nmgui "/bin/bash ~/.config/fish/nmgui.sh"
 alias stopdocker "/bin/bash ~/.config/fish/allStopDocker.sh"
 alias k "kubectl"
+alias kns "/home/fox/git/kubectx/kubens"
+alias kctx "/home/fox/git/kubectx/kubectx"
+alias kg "kubectl get"
 
 function cd
     # Avoid set completions.
