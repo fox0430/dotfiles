@@ -20,14 +20,16 @@ alias DL "cd & cd ~/Downloads"
 alias x "startx"
 alias py "python"
 alias rm "rm -v -i"
-alias DC "/bin/bash ~/.config/fish/dysplayChange.sh"
 alias cp "cp -v -i"
+alias mv "mv -v -i"
+alias DC "/bin/bash ~/.config/fish/dysplayChange.sh"
 alias nmgui "/bin/bash ~/.config/fish/nmgui.sh"
 alias stopdocker "/bin/bash ~/.config/fish/allStopDocker.sh"
 alias k "kubectl"
 alias kns "/home/fox/git/kubectx/kubens"
 alias kctx "/home/fox/git/kubectx/kubectx"
 alias kg "kubectl get"
+alias cat "bat"
 
 function cd
     # Avoid set completions.
