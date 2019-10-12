@@ -16,7 +16,7 @@ xinput set-prop 12 152 1 0 0 0 1 0 0 0 0.2
 nm-applet &
 nitrogen --restore &
 compton --xrender-sync --xrender-sync-fence &
-alacritty &
+urxvt &
 fcitx-autostart &
 
 #exec awesome
