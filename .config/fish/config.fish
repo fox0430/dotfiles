@@ -1,8 +1,15 @@
 set PATH /home/fox/.nimble/bin $PATH
-export TERM=rxvt-unicode-256color
-set PATH /home/fox/Fablic/fabric-samples/bin $PATH
+#export TERM=rxvt-unicode-256color
+export TERM=xterm-unicode-256color
 
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Djxbrowser.ipc.external=true'
+#export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Djxbrowser.ipc.external=true'
+
+## CrunchyData
+export PGOUSER="~/.pgo/pgo/pgouser"
+export PGO_CA_CERT="~/.pgo/pgo/client.crt"
+export PGO_CLIENT_CERT="~/.pgo/pgo/client.crt"
+export PGO_CLIENT_KEY="~/.pgo/pgo/client.pem"
+export PGO_APISERVER_URL='https://127.0.0.1:8443'
 
 screenfetch
 
@@ -13,10 +20,16 @@ alias DL "cd & cd ~/Downloads"
 alias x "startx"
 alias py "python"
 alias rm "rm -v -i"
-alias DC "/bin/bash ~/.config/fish/dysplayChange.sh"
 alias cp "cp -v -i"
+alias mv "mv -v -i"
+alias DC "/bin/bash ~/.config/fish/dysplayChange.sh"
 alias nmgui "/bin/bash ~/.config/fish/nmgui.sh"
 alias stopdocker "/bin/bash ~/.config/fish/allStopDocker.sh"
+alias k "kubectl"
+alias kns "/home/fox/git/kubectx/kubens"
+alias kctx "/home/fox/git/kubectx/kubectx"
+alias kg "kubectl get"
+alias cat "bat"
 
 function cd
     # Avoid set completions.
