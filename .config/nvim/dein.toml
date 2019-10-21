@@ -1,0 +1,38 @@
+[[plugins]]
+# plugin manager
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+# status bar theme
+repo = 'vim-airline/vim-airline'
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+# For Nim
+repo = 'zah/nim.vim'
+
+[[plugins]]
+# Quick run 
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+# Syntax checker
+repo = 'w0rp/ale'
+
+[[plugins]]
+# Git supports
+repo = 'tpope/vim-fugitive'
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+# Color scheme
+repo = 'jonathanfilip/vim-lucius'
+
+[[plugins]]
+## smooth scroll
+repo = 'yuttie/comfortable-motion.vim'
+
+[[plugins]]
+# asynchronous execution library
+repo = 'Shougo/vimproc.vim'
+build = 'make'
