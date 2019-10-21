@@ -1,8 +1,7 @@
 "Standard Settings
 set background=dark
-set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=ucs-boms,utf-8,euc-jp,cp932 
+set fileencodings=ucs-boms,utf-8,euc-jp,cp932
 set fileformats=unix,dos,mac
 set ambiwidth=double
 set wildmode=longest:full,full
@@ -16,13 +15,12 @@ set shiftwidth=2
 set incsearch
 set ignorecase
 set smartcase
-set clipboard& clipboard^=unnamedplus
+set clipboard=unnamed
 set belloff=all
 set spelllang=en,cjk
-syntax on
+syntax enable
 
 "Window keybind
-
 nnoremap <C-k> <C-w>l
 nnoremap <C-j> <C-w>h
 
@@ -67,16 +65,10 @@ filetype plugin indent on
 "vim-gitgutter
 set updatetime=250
 
-"Airline
-set laststatus=2
-set t_Co=256 
-let g:airline_theme='papercolor'
-
 "color
-syntax on
-let g:solarized_contrast="high"
-let g:solarized_termcolors=256
-colorscheme lucius
+"let g:solarized_contrast="high"
+"let g:solarized_termcolors=256
+colorscheme atom-dark-256
 
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
