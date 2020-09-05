@@ -4,18 +4,11 @@ export TERM=xterm-unicode-256color
 
 #export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Djxbrowser.ipc.external=true'
 
-## CrunchyData
-export PGOUSER="~/.pgo/pgo/pgouser"
-export PGO_CA_CERT="~/.pgo/pgo/client.crt"
-export PGO_CLIENT_CERT="~/.pgo/pgo/client.crt"
-export PGO_CLIENT_KEY="~/.pgo/pgo/client.pem"
-export PGO_APISERVER_URL='https://127.0.0.1:8443'
-
 screenfetch
 
 fish_vi_key_bindings
 
-alias vi "vim"
+alias vi "nvim"
 alias DL "cd & cd ~/Downloads"
 alias x "startx"
 alias py "python"
