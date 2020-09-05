@@ -1,29 +1,30 @@
 " Background color
 set background=dark
-
 " File encoding, format
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-boms,utf-8,euc-jp,cp932
 set fileformats=unix,dos,mac
-
 " Line number
 set number
 " Auto indent
 set autoindent
-" tabstop
+" Tab settings
 set tabstop=2
+set expandtab
+set shiftwidth=2
 " Clipboard
 set clipboard=unnamed
-" Highligting search result
+" Highlighting search result
 set hls
 " Incremental search 
 set incsearch
 set ignorecase
 set smartcase
-
 " Disable swap file
 set noswapfile
+" Highlighting current line
+set cursorline
 
 "Window keybind
 nnoremap <C-k> <C-w>l
