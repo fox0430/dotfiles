@@ -25,6 +25,8 @@ set smartcase
 set noswapfile
 " Highlighting current line
 set cursorline
+" Disable folding
+:set nofoldenable
 
 "Window keybind
 nnoremap <C-k> <C-w>l
@@ -64,11 +66,14 @@ Plug 'yuttie/comfortable-motion.vim'
 
 " Color scheme
 Plug 'jonathanfilip/vim-lucius'
+Plug 'sainnhe/sonokai'
 
 " JavaScript
 Plug 'othree/yajs.vim'
 " Nim
-Plug 'zah/nim.vim'
+Plug 'alaviss/nim.nvim'
+" Toml
+Plug 'cespare/vim-toml'
 
 " Initialize plugin system
 call plug#end()
@@ -83,14 +88,17 @@ let g:airline_theme='papercolor'
 
 " color settings
 syntax on
-let g:solarized_contrast="high"
-let g:solarized_termcolors=256
+" solarized
+" let g:solarized_contrast="high"
+" let g:solarized_termcolors=256
+" sonokai
+" let g:sonokai_style = 'maia'
 colorscheme lucius
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
-highlight Folded ctermbg=none
-highlight EndOfBuffer ctermbg=none
+" highlight Normal ctermbg=none
+" highlight NonText ctermbg=none
+" highlight LineNr ctermbg=none
+" highlight Folded ctermbg=none
+" highlight EndOfBuffer ctermbg=none
 
 " comfortable-motion settings
 let g:comfortable_motion_scroll_down_key = "j"
