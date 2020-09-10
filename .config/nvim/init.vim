@@ -17,7 +17,7 @@ set shiftwidth=2
 set clipboard=unnamed
 " Highlighting search result
 set hls
-" Incremental search 
+" Incremental search
 set incsearch
 set ignorecase
 set smartcase
@@ -63,6 +63,9 @@ Plug 'RRethy/vim-illuminate'
 
 " Scroll motion
 Plug 'yuttie/comfortable-motion.vim'
+
+" Highlighting whitespace
+Plug 'ntpeters/vim-better-whitespace'
 
 " Color scheme
 Plug 'jonathanfilip/vim-lucius'
