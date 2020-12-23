@@ -23,6 +23,7 @@ alias kns "/home/fox/git/kubectx/kubens"
 alias kctx "/home/fox/git/kubectx/kubectx"
 alias kg "kubectl get"
 alias cat "bat"
+alias logout "set PID (cat /home/fox/.bashPid) && kill -s 9 $PID"
 
 function cd
     # Avoid set completions.
