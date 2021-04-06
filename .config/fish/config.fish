@@ -9,21 +9,26 @@ screenfetch
 fish_vi_key_bindings
 
 alias vi "nvim"
-alias DL "cd & cd ~/Downloads"
+
 alias x "startx"
+
 alias py "python"
+
+alias DL "cd & cd ~/Downloads"
 alias rm "rm -v -i -r"
 alias cp "cp -v -i -r"
 alias mv "mv -v -i"
+
 alias DC "/bin/bash ~/.config/fish/dysplayChange.sh"
+
 alias nmgui "/bin/bash ~/.config/fish/nmgui.sh"
+
 alias stopdocker "/bin/bash ~/.config/fish/allStopDocker.sh"
+
 alias k "kubectl"
-alias kns "/home/fox/git/kubectx/kubens"
-alias kctx "/home/fox/git/kubectx/kubectx"
+alias kns "kubens"
+alias kctx "kubectx"
 alias kg "kubectl get"
-alias cat "bat"
-alias logout "set PID (cat /home/fox/.bashPid) && kill -s 9 $PID"
 
 function cd
     # Avoid set completions.
