@@ -1,10 +1,12 @@
 set PATH /home/fox/.nimble/bin $PATH
+set PATH /home/fox/.cargo/bin $PATH
+
 #export TERM=rxvt-unicode-256color
 export TERM=xterm-unicode-256color
 
 #export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Djxbrowser.ipc.external=true'
 
-screenfetch
+Screenfetch
 
 fish_vi_key_bindings
 
@@ -29,6 +31,9 @@ alias k "kubectl"
 alias kns "kubens"
 alias kctx "kubectx"
 alias kg "kubectl get"
+alias regcred "kubectl create secret generic regcred \
+    --from-file=.dockerconfigjson=$HOME/.docker/config.json \
+    --type=kubernetes.io/dockerconfigjson"
 
 function cd
     # Avoid set completions.
