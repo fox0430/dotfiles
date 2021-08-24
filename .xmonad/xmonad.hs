@@ -48,12 +48,12 @@ main = do
 toggleStrutsKey XConfig { XMonad.modMask = modMask } = ( modMask, xK_b )
 
 myConfig = ewmh defaultConfig
-    { terminal							= myTerminal 
+    { terminal							= myTerminal
     , modMask								= mod4Mask
     , borderWidth						= myBorderWidth
 		, focusFollowsMouse			= True
 		, workspaces						= myWorkspaces
-		, startupHook						= setWMName "LG3D"
+		, startupHook						= mystartup
 		, manageHook						= manageDocks <+> myManageHookFloat <+> manageHook defaultConfig
 		, handleEventHook				= fullscreenEventHook
 		, logHook 							= dynamicLogWithPP $ xmobarPP
@@ -118,3 +118,11 @@ myManageHookFloat   =   composeAll
 
     where
       doLeftFloat = customFloating $ W.RationalRect (0/6) (3.3/6) (1.7/4) (2.7/6)   --x, y, width, hight
+
+mystartup = do
+  setWMName "LG3D"
+  spawn "/bin/sh /home/fox/.screenlayout/default.sh"
+  spawn "picom &"
+  spawn "nm-applet &"
+  spawn "nitrogen --restore &"
+  spawn "urxvt &"
