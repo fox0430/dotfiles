@@ -64,3 +64,16 @@ function cd
     ls
     return $status
 end
+
+function merge_kubeconfig
+  set path "$argv"
+  set path_len (string length $path)
+
+  if test $path_len -gt 0
+    alias KUBECONFIG=$HOME/.kube/config:$path kubectl config view --flatten > /tmp/config && mv /tmp/config ~/.kube/config
+    echo $HOME/.kube/config
+  else
+    echo "Erro: Please set a New kubeconfig path"
+  end
+
+end
