@@ -2,7 +2,7 @@ set PATH /home/fox/.nimble/bin $PATH
 set PATH /home/fox/.cargo/bin $PATH
 
 #export TERM=rxvt-unicode-256color
-export TERM=xterm-unicode-256color
+export TERM=xterm-256color
 
 #export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Djxbrowser.ipc.external=true'
 
