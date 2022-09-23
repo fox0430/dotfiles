@@ -70,6 +70,7 @@ Plug 'ntpeters/vim-better-whitespace'
 " Color scheme
 Plug 'jonathanfilip/vim-lucius'
 Plug 'sainnhe/sonokai'
+Plug 'joshdick/onedark.vim'
 
 " JavaScript
 Plug 'othree/yajs.vim'
@@ -96,7 +97,7 @@ syntax on
 " let g:solarized_termcolors=256
 " sonokai
 " let g:sonokai_style = 'maia'
-colorscheme lucius
+colorscheme onedark
 " highlight Normal ctermbg=none
 " highlight NonText ctermbg=none
 " highlight LineNr ctermbg=none
