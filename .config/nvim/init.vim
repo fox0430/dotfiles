@@ -70,6 +70,7 @@ Plug 'ntpeters/vim-better-whitespace'
 " Color scheme
 Plug 'jonathanfilip/vim-lucius'
 Plug 'sainnhe/sonokai'
+Plug 'joshdick/onedark.vim'
 
 " JavaScript
 Plug 'othree/yajs.vim'
@@ -96,7 +97,7 @@ syntax on
 " let g:solarized_termcolors=256
 " sonokai
 " let g:sonokai_style = 'maia'
-colorscheme lucius
+colorscheme onedark
 " highlight Normal ctermbg=none
 " highlight NonText ctermbg=none
 " highlight LineNr ctermbg=none
@@ -140,10 +141,11 @@ endif
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
