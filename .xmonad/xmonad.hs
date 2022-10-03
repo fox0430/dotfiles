@@ -10,6 +10,8 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
 import XMonad.Actions.FloatKeys
 import XMonad.Layout
 import XMonad.Layout.DragPane
@@ -33,36 +35,28 @@ import System.IO
 main :: IO()
 
 main = do
-	xmproc <- spawnPipe "xmobar"
-	xmonad =<< statusBar
-		"xmobar"
-			xmobarPP
-			toggleStrutsKey
-			myConfig
-			{ logHook = dynamicLogWithPP $ xmobarPP
-				{ ppOutput = hPutStrLn xmproc
-				, ppTitle = myColor
-				}
-			}
+  xmproc <- spawnPipe "xmobar"
+  xmonad $ docks $ ewmhFullscreen $ myConfig
+    { logHook = dynamicLogWithPP xmobarPP
+      { ppOutput = hPutStrLn xmproc
+        , ppTitle = myColor
+      }
+    }
 
-toggleStrutsKey XConfig { XMonad.modMask = modMask } = ( modMask, xK_b )
-
-myConfig = ewmh defaultConfig
-    { terminal							= myTerminal
-    , modMask								= mod4Mask
-    , borderWidth						= myBorderWidth
-		, focusFollowsMouse			= True
-		, workspaces						= myWorkspaces
-		, startupHook						= mystartup
-		, manageHook						= manageDocks <+> myManageHookFloat <+> manageHook defaultConfig
-		, handleEventHook				= fullscreenEventHook
-		, logHook 							= dynamicLogWithPP $ xmobarPP
-    , layoutHook						= avoidStruts $ ( toggleLayouts (noBorders Full) $ myLayout)
-		, normalBorderColor			= "#333333"
-    , focusedBorderColor		= "#cd8b00"
+myConfig = ewmh def
+    { terminal            = myTerminal
+    , modMask             = mod4Mask
+    , borderWidth         = myBorderWidth
+    , focusFollowsMouse   = True
+    , workspaces          = myWorkspaces
+    , startupHook         = mystartup
+    , manageHook          = manageDocks <+> myManageHookFloat <+> manageHook def
+    , layoutHook          = avoidStruts $ ( toggleLayouts (noBorders Full) $ myLayout)
+    , normalBorderColor   = "#333333"
+    , focusedBorderColor  = "#cd8b00"
     } `additionalKeys` myKeys
 
-myTerminal    = "urxvt"
+myTerminal    = "alacritty"
 
 -- key code
 blightUp      = 0x1008ff02
@@ -78,8 +72,8 @@ myWorkspaces  = ["Term","Brows","1","2","3","4","5"]
 
 moveWD        = myBorderWidth
 resizeWD      = 2*myBorderWidth
-myBorderWidth	= 2
-gapwidth  		= 4
+myBorderWidth = 2
+gapwidth      = 4
 gwU           = 2
 gwD           = 1
 gwL           = 38
@@ -89,12 +83,12 @@ myLayout      = spacing gapwidth $ gaps [(U, gwU),(D, gwD),(L, gwL),(R, gwR)]
                   ||| Mirror (Tall 1 (3/100) (3/5))
                   ||| ThreeCol 1 (3/100) (1/2)
 
-myKeys			  = [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
-                , ((mod4Mask, xK_Return), spawn "urxvt")
-                , ((mod4Mask .|. shiftMask, xK_Return), spawn "sh ~/.xmonad/urxvt_float.sh &")
+myKeys        = [ ((mod4Mask,  xK_v), spawn "vivaldi-snapshot")
+                , ((mod4Mask, xK_Return), spawn "alacritty")
+                , ((mod4Mask .|. shiftMask, xK_Return), spawn "sh ~/.xmonad/alacritty_float.sh &")
 
-					      -- Toggle layout (Fullscreen mode)
-					      , ((mod4Mask, xK_f)    , sendMessage ToggleLayout)
+                -- Toggle layout (Fullscreen mode)
+                , ((mod4Mask, xK_f)    , sendMessage ToggleLayout)
                 -- Blightness contorl
                 , ((0, blightUp), spawn "xbacklight -inc 5")
                 , ((0, blightDown), spawn "xbacklight -dec 5")
@@ -111,9 +105,9 @@ myKeys			  = [ ((mod4Mask,	xK_v), spawn "vivaldi-snapshot")
   ]
 
 myManageHookFloat   =   composeAll
-    [ className     =?  "Gimp"			   --> doFloat
-		, className     =?  "feh"          --> doFloat
-    , title         =?  "urxvt_float"  --> doLeftFloat
+    [ className     =?  "Gimp"                               --> doFloat
+    , className     =?  "feh"                                --> doFloat
+    , title         =?  "alacritty_float"                    --> doLeftFloat
     ]
 
     where
@@ -125,4 +119,4 @@ mystartup = do
   spawn "picom &"
   spawn "nm-applet &"
   spawn "nitrogen --restore &"
-  spawn "urxvt &"
+  spawn "alacritty &"
