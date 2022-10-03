@@ -1,4 +1,10 @@
 {
   "suggest.enablePreselect": false,
-  "suggest.noselect": true
+  "suggest.noselect": true,
+  "languageserver": {
+    "nim": {
+      "command": "nimlsp",
+      "filetypes": ["nim"]
+    }
+  }
 }
