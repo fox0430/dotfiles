@@ -36,7 +36,7 @@ main :: IO()
 
 main = do
   xmproc <- spawnPipe "xmobar"
-  xmonad $ docks $ ewmhFullscreen $ myConfig
+  xmonad $ docks $ ewmhFullscreen $ ewmh myConfig
     { logHook = dynamicLogWithPP xmobarPP
       { ppOutput = hPutStrLn xmproc
         , ppTitle = myColor
