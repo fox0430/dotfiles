@@ -7,8 +7,7 @@ export TERM=xterm-256color
 #export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Djxbrowser.ipc.external=true'
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-
-Screenfetch
+eval (ssh-agent -c)
 
 fish_vi_key_bindings
 
@@ -72,7 +71,7 @@ function merge_kubeconfig
   set path_len (string length $path)
 
   if test $path_len -gt 0
-    alias KUBECONFIG=$HOME/.kube/config:$path kubectl config view --flatten > /tmp/config && mv /tmp/config ~/.kube/config
+    KUBECONFIG=$HOME/.kube/config:$path kubectl config view --flatten > /tmp/config && mv /tmp/config ~/.kube/config
     echo $HOME/.kube/config
   else
     echo "Erro: Please set a New kubeconfig path"
