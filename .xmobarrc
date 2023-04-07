@@ -5,6 +5,7 @@ Config { font = "xft:Ricty-10:bold"
 	, lowerOnStart = False
   , alpha = 150
 	, commands = [ Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+				, Run K10Temp "0000:00:18.3" [] 100
 				, Run Network "wlp3s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
 				, Run Battery [] 10
 				, Run Memory ["-t","Mem: <usedratio>%"] 10
@@ -12,5 +13,5 @@ Config { font = "xft:Ricty-10:bold"
 				, Run Com "bash" ["/home/fox/.xmonad/get-volume.sh"] "myvolume" 10
 				, Run StdinReader
 	 ]
-	, template = "%cpu% | %memory% | %wlp3s0% | %myvolume% | %battery%} %StdinReader% { <fc=#ee9a00>%date%</fc>"
+	, template = "%cpu% | %k10temp% | %memory% | %wlp3s0% | %myvolume% | %battery%} %StdinReader% { <fc=#ee9a00>%date%</fc>"
 }
