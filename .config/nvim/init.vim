@@ -84,6 +84,9 @@ Plug 'cespare/vim-toml'
 " Jsonnnet
 Plug 'google/vim-jsonnet'
 
+" Terrafrom
+Plug 'hashivim/vim-terraform'
+
 " Initialize plugin system
 call plug#end()
 
