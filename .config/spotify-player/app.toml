@@ -1,0 +1,4 @@
+theme = "my_blue"
+
+[device]
+bitrate = 320
