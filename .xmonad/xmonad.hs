@@ -79,7 +79,7 @@ gwD           = 1
 gwL           = 38
 gwR           = 37
 myLayout      = spacing gapwidth $ gaps [(U, gwU),(D, gwD),(L, gwL),(R, gwR)]
-                  $ (ResizableTall 1 (1/201) (116/201) [])
+                  $ (ResizableTall 1 (1/201) (150/200) [])
                   ||| Mirror (Tall 1 (3/100) (3/5))
                   ||| ThreeCol 1 (3/100) (1/2)
 
