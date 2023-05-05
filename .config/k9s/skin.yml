@@ -1,0 +1,35 @@
+k9s:
+  body:
+    bgColor: default
+    logoColor: steelblue
+  info:
+    fgColor: lightskyblue
+    sectionColor: steelblue
+  frame:
+    menu:
+      fgColor: default
+      keyColor: default
+      numKeyColor: default
+    crumbs:
+      bgColor: default
+    title:
+      fgColor: aqua
+      bgColor: default
+      highlightColor: skyblue
+      counterColor: slateblue
+      filterColor: slategray
+  views:
+    table:
+      bgColor: default
+      header:
+        fgColor: white
+        bgColor: default
+        cursorColor: aqua
+    xray:
+      bgColor: default
+    logs:
+      bgColor: default
+      indicator:
+        bgColor: default
+    charts:
+      bgColor: default
