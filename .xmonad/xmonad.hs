@@ -53,7 +53,7 @@ myConfig = ewmh def
     , manageHook          = manageDocks <+> myManageHookFloat <+> manageHook def
     , layoutHook          = avoidStruts $ ( toggleLayouts (noBorders Full) $ myLayout)
     , normalBorderColor   = "#333333"
-    , focusedBorderColor  = "#cd8b00"
+    , focusedBorderColor  = "#00ffff"
     } `additionalKeys` myKeys
 
 myTerminal    = "alacritty"
