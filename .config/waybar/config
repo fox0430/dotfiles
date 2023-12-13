@@ -6,11 +6,10 @@
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "pulseaudio", "network", "idle_inhibitor", "clock"],
+    "modules-right": ["tray", "pulseaudio", "network", "clock"],
     "hyprland/workspaces": {
         "format": "{name}",
         "disable-scroll": true,
-        "active-only": false,
         "all-outputs": true
     },
     "hyprland/window": {
@@ -18,11 +17,13 @@
         "tooltip": false
     },
     "clock": {
-        "format": "{:%a %d %b %H:%M}",
+        "interval": 1,
+        "format": "{:%b %a %d %H:%M:%S}",
         "tooltip": false
     },
     "network": {
-        "format": "{icon}",
+        "interface": "enp10s0",
+        "format": "⇣ {bandwidthDownBytes} ⇡ {bandwidthUpBytes}",
         "format-alt": "{ipaddr}/{cidr} {icon}",
         "format-alt-click": "click-right",
         "format-icons": {
@@ -31,10 +32,11 @@
             "disconnected": [""]
         },
         "on-click": "termite -e nmtui",
-    "tooltip": false
+        "interval": 5,
+        "tooltip": false
     },
     "pulseaudio": {
-        "format": "{icon}",
+        "format": "{volume} {icon}",
         "format-alt": "{volume} {icon}",
         "format-alt-click": "click-right",
         "format-muted": "",
@@ -45,20 +47,6 @@
         "scroll-step": 10,
         "on-click": "pavucontrol",
         "tooltip": false
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-        "tooltip": false
-    },
-    "custom/test": {
-        "format": "{}",
-        "exec": "/tmp/test blub",
-        "param": "blah",
-        "interval": 5
     },
     "tray": {
         "icon-size": 18
