@@ -1,12 +1,12 @@
 {
-    "layer": "bottom",
+    "layer": "top",
     "output": "HDMI-A-1",
     "position": "top",
     "height": 30,
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "pulseaudio", "network", "clock"],
+    "modules-right": ["tray", "idle_inhibitor", "pulseaudio", "network", "clock"],
     "hyprland/workspaces": {
         "format": "{name}",
         "disable-scroll": true,
@@ -47,6 +47,15 @@
         "scroll-step": 10,
         "on-click": "pavucontrol",
         "tooltip": false
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": "",
+        },
+        "on-click-right": "hyprlock",
+        "tooltip": true
     },
     "tray": {
         "icon-size": 18
