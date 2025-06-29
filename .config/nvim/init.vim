@@ -14,7 +14,7 @@ set tabstop=2
 set expandtab
 set shiftwidth=2
 " Clipboard
-set clipboard=unnamed
+clipboard=unnamed,unnamedplus
 " Highlighting search result
 set hls
 " Incremental search
