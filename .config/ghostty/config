@@ -44,6 +44,9 @@
 
 background-opacity = 0.8
 
-font-feature = -dlig
+font-family = 'HackGen Console NF'
+font-feature = "-calt"
+font-feature = "-dlig"
+font-feature = "-liga"
 
 theme = "Hivacruz"
